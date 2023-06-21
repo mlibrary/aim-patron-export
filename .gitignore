@@ -1,0 +1,10 @@
+.env
+proc_patron_export.out
+scratch/*
+!scratch/.keep
+!scratch/processed
+scratch/processed/*
+!scratch/processed/.keep
+!scratch/data
+scratch/data/*
+!scratch/data/.keep
