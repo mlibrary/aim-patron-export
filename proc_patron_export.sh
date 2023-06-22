@@ -1,12 +1,12 @@
 #!/bin/bash
 
 echo "**** $0 started  " `date`
-
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 if [ $# = 1 ]
 then
   DOTENV=$1
 else
-  DOTENV=.env
+  DOTENV=$SCRIPT_DIR/.env
 fi
 START_TIME=`date '+%s'`
 
@@ -80,6 +80,6 @@ fi
 
 echo "**** $0 ended  " `date`
 if [ "$SEND_METRICS" == "true" ]; then
-  cat ${DATADIR}/${SET_NAME}.metrics | /usr/local/bin/pushgateway_advanced -j aim_patron_extract
+  cat ${DATA_DIR}/${SET_NAME}.metrics | /usr/local/bin/pushgateway_advanced -j aim_patron_extract
   /usr/local/bin/pushgateway -j patron_extract_processing -b $START_TIME 
 fi
