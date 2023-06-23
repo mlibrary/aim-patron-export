@@ -80,6 +80,6 @@ fi
 
 echo "**** $0 ended  " `date`
 if [ "$SEND_METRICS" == "true" ]; then
-  cat ${DATA_DIR}/${SET_NAME}.metrics | /usr/local/bin/pushgateway_advanced -j aim_patron_extract
+  cat ${DATA_DIR}/${SET_NAME}.metrics | /usr/local/bin/pushgateway_advanced -j aim_patron_export
   /usr/local/bin/pushgateway -j patron_extract_processing -b $START_TIME 
 fi

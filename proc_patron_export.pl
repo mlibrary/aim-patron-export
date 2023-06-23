@@ -103,7 +103,7 @@ my $out_illiad = 0;
 my $out_libauth = 0;
 my $no_campus_code = 0;
 my $pushgateway_metrics = "";
-my $job = "aim_patron_extract";
+my $job = "aim_patron_export";
 
 foreach my $file (@file_list) {
   next if $file =~ /^\./;
@@ -126,9 +126,9 @@ print $fh_report "$out_libauth libauth records written\n";
 $filecnt_total = last_count($job, "files_processed_total") + $filecnt;
 
 $pushgateway_metrics = <<"END_MESSAGE";
-# HELP aim_patron_extract_files_processed_total Count of files exported from alma that have been processed by patron_extract script
-# TYPE aim_patron_extract_files_processed_total counter
-aim_patron_extract_files_processed_total $filecnt_total
+# HELP aim_patron_export_files_processed_total Count of files exported from alma that have been processed by patron_export script
+# TYPE aim_patron_export_files_processed_total counter
+aim_patron_export_files_processed_total $filecnt_total
 END_MESSAGE
 
 print $fh_metrics $pushgateway_metrics;
