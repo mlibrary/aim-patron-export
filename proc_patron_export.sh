@@ -67,7 +67,7 @@ then
 fi
 
 echo "Removing export files from $EXPORT_DIR"
-rm ${SET_NAME}*
+rm -f ${SET_NAME}*
 if [ $illiad_status -ne 0 ]
 then
   exit
